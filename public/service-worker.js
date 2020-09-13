@@ -1,4 +1,3 @@
-
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open('budgetTracker-cache-v1').then(cache => {
@@ -8,7 +7,7 @@ self.addEventListener('install', event => {
         '/index.html',
         '/manifest.json',
         '/index.js',
-        '/style.css',
+        '/styles.css',
         '/icons/icon-192x192.png',
         '/icons/icon-512x512.png'
       ])
@@ -19,6 +18,20 @@ self.addEventListener('install', event => {
 self.addEventListener('fetch', event => {
 
   if (event.request.url.includes('/api/')) {
+    // event.respondWith(
+    //   caches.open('data-cache-v1').then(cache => {
+    //     return fetch(event.request)
+    //       .then(res => {
+    //         if (res.status === 200) {
+    //           cache.put(event.request.url, res.clone())
+    //         }
+    //       })
+    //       .catch(err => {
+    //         return cache.match(event.request)
+    //       })
+    //   })
+    //   .catch(err => console.error(err))
+    // )
     return
   }
 
