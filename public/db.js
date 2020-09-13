@@ -18,6 +18,7 @@ request.onerror = event => {
   console.log(event.target.errorCode)
 }
 
+// define the function here from the index.js file line 139
 const saveRecord = item => {
   const transaction = db.transaction(['pending'], 'readwrite')
   const store = transaction.objectStore('pending')
