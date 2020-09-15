@@ -20,9 +20,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
   useFindAndModify: false
 });
 
-// routes
+// bring in routes
 app.use(require("./routes/api.js"));
 
+// have the server listen on the process enviornement port for deployment, or 3000 for local development.
 app.listen(process.env.PORT || PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });

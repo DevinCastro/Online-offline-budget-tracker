@@ -2,6 +2,7 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open('budgetTracker-cache-v1').then(cache => {
       console.log('Opened cache')
+      // cache all possible routes in the public folder
       return cache.addAll([
         '/',
         '/index.html',

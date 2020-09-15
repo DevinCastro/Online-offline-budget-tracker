@@ -1,4 +1,5 @@
 let db
+// create the budget database in indexedDB
 const request = indexedDB.open('budget', 1)
 
 request.onupgradeneeded = event => {
